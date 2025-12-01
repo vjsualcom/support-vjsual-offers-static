@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung Offers - How To</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #0f2557 0%, #1e40af 50%, #3b82f6 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            padding: 80px 100px;
+            border-radius: 20px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: #1e40af;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            font-size: 1.2em;
+            margin-bottom: 60px;
+            font-weight: 400;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #1e40af;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #3b82f6;
+            transform: translateX(-5px);
+        }
+
+        .article-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .article-list li {
+            margin-bottom: 0;
+            border-bottom: 1px solid #e5e7eb;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .article-list li:nth-child(1) { animation-delay: 0.1s; }
+        .article-list li:nth-child(2) { animation-delay: 0.2s; }
+        .article-list li:nth-child(3) { animation-delay: 0.3s; }
+        .article-list li:nth-child(4) { animation-delay: 0.4s; }
+        .article-list li:nth-child(5) { animation-delay: 0.5s; }
+        .article-list li:nth-child(6) { animation-delay: 0.6s; }
+        .article-list li:nth-child(7) { animation-delay: 0.7s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-list li:last-child {
+            border-bottom: none;
+        }
+
+        .article-link {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 1.25em;
+            display: flex;
+            align-items: center;
+            padding: 24px 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .article-link:before {
+            content: '→';
+            position: absolute;
+            right: 20px;
+            font-size: 1.5em;
+            color: #1e40af;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .article-link:hover {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+            padding-left: 30px;
+            color: #1e40af;
+        }
+
+        .article-link:hover:before {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .article-content {
+            margin-top: 0;
+        }
+
+        .scribe-title {
+            color: #1e40af;
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .scribe-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #1e40af 0%, #3b82f6 100%);
+            border-radius: 2px;
+        }
+
+        .scribe-step {
+            margin-bottom: 35px;
+        }
+
+        .scribe-step-text {
+            font-size: 1.05em;
+            line-height: 1.9;
+            color: #374151;
+            margin-bottom: 15px;
+        }
+
+        .scribe-step-tip {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-left: 4px solid #10b981;
+            padding: 20px 26px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+        }
+
+        .scribe-step-warning {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 20px 26px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+        }
+
+        .scribe-screenshot-container {
+            margin: 35px 0;
+            text-align: center;
+        }
+
+        .scribe-screenshot {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .scribe-screenshot:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        a {
+            color: #1e40af;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 600;
+        }
+
+        a:hover {
+            color: #3b82f6;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+
+            .container {
+                padding: 50px 30px;
+                border-radius: 16px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 15px;
+            }
+
+            .subtitle {
+                font-size: 1em;
+                margin-bottom: 40px;
+            }
+
+            .article-link {
+                font-size: 1.1em;
+                padding: 18px 15px;
+            }
+
+            .scribe-title {
+                font-size: 2em;
+            }
+
+            .back-link {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Overview -->
+        <div id="overview">
+            <h1>Samsung Offers - How To</h1>
+            <p class="subtitle">Schritt-für-Schritt Anleitungen für Samsung Offers</p>
+            
+            <ul class="article-list">
+                <li><a href="#" class="article-link" onclick="showArticle('anmelden'); return false;">Anmelden</a></li>
+                <li><a href="#" class="article-link" onclick="showArticle('firma'); return false;">Firma anlegen und verwalten</a></li>
+                <li><a href="#" class="article-link" onclick="showArticle('kontakt'); return false;">Kontakt hinzufügen und verwalten</a></li>
+                <li><a href="#" class="article-link" onclick="showArticle('angebote-verwalten'); return false;">Angebote verwalten</a></li>
+                <li><a href="#" class="article-link" onclick="showArticle('angebot-erstellen'); return false;">Angebot erstellen</a></li>
+                <li><a href="#" class="article-link" onclick="showArticle('benutzer-hinzufuegen'); return false;">Neuen Benutzer hinzufügen</a></li>
+                <li><a href="#" class="article-link" onclick="showArticle('benutzer-sperren'); return false;">Benutzer sperren</a></li>
+            </ul>
+        </div>
+
+        <!-- Article: Anmelden -->
+        <div id="anmelden" class="hidden">
+            <a href="#" class="back-link" onclick="showOverview(); return false;">← Zurück zur Übersicht</a>
+            <div class="article-content">
+                <h1 class="scribe-title">Anmelden</h1><br/><br/>
+                <div class="scribe-step">
+                    <p class="scribe-step-text scribe-step-tip">Tip: Folgende Schritte sind nur durchführbar, wenn für dich ein Konto eingerichtet ist! Du benötigst einen Benutzernamen und ein Passwort, worüber du möglicherweise bereits in einer E-Mail informiert wurdest.</p>
+                </div>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">1. Gehe zu <a href="https://samsung.app.vjsual-offers.com/">https://samsung.app.vjsual-offers.com/</a>.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/f93cd88a-960a-4af7-99e2-26827fc70ca6/ascreenshot.jpeg?tl_px=0,194&br_px=2122,1381&force_format=jpeg&q=100&width=1120.0"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">2. Klicke auf "Login".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/f93cd88a-960a-4af7-99e2-26827fc70ca6/ascreenshot.jpeg?tl_px=0,371&br_px=2122,1558&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=638,276"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">3. Gebe deinen Benutzernamen und dein Passwort ein.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/465ec7ca-c270-46ee-9fdf-cf8f8794a1b0/ascreenshot.jpeg?tl_px=0,199&br_px=2122,1386&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=471,277"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">4. Klicke auf "Anmelden".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/3e06127d-c559-47be-9408-e5996a017f1e/ascreenshot.jpeg?tl_px=0,288&br_px=2122,1475&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=658,276"/>
+                </p>
+            </div>
+        </div>
+
+    <!-- Article: Firma anlegen und verwalten -->
+    <div id="firma" class="hidden">
+        <a href="#" class="back-link" onclick="showOverview(); return false;">← Zurück zur Übersicht</a>
+        <div class="article-content">
+                <h1 class="scribe-title">Firma anlegen und verwalten</h1><br/><br/>
+                <div class="scribe-step">
+                    <p class="scribe-step-text scribe-step-tip">Tip: Zum Thema einen Kontakt, z. B. zu einer Ansprechperson, anlegen: <a href="#" onclick="showArticle('kontakt'); return false;">Kontakt hinzufügen und verwalten</a>.</p>
+                </div>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">1. Um Firmenkontakte hinzuzufügen oder zu bearbeiten, klicke über "Firmen" auf "Alle Firmen. Die sich dann öffnende Übersicht informiert über alle im System vorhandene Firmenkontakte.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/8b6daa05-ccc6-4896-a8c9-315f8342c7fb/user_cropped_screenshot.webp?tl_px=0,0&br_px=1550,866&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=34,221"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">2. Um eine neue Firma hinzuzufügen, klicke auf den Button "Firma hinzufügen".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/4a45cee9-6f57-4ad6-8954-739b916684e0/user_cropped_screenshot.webp?tl_px=0,0&br_px=2122,1186&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=304,32"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">3. Trage im sich öffnenden Formular alle relevanten Kontaktdaten und steuerliche Informationen ein.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/03caa1f4-a91b-4533-90b8-69efddb9b2e4/user_cropped_screenshot.webp?tl_px=0,250&br_px=2122,1437&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=664,277"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">4. Klicke anschließend auf den Button "Speichern".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/5e0d7d75-892c-47f0-b437-3b4836f4ef65/user_cropped_screenshot.webp?tl_px=500,0&br_px=2122,906&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=980,185"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">5. Der neue Firmenkontakt ist nun systemweit verfügbar, in allen Angeboten verwendbar und erscheint in der Gesamtansicht. In der Spalte "Titel", jeweils unter dem Firmenname befinden sich die Verwaltungsoptionen.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/e33dd517-d4da-4a04-aa7a-2a385f64d24a/user_cropped_screenshot.webp?tl_px=119,0&br_px=2122,1118&force_format=jpeg&q=100&width=1120.0"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">6. "Bearbeiten" öffnet den Editor mit den jeweiligen Daten des Firmenkontaktes.<br/>
+                    Um Änderungen zu speichern, klicke auf den Button "Aktualisieren", damit die Kontaktdatenänderungen anschließend systemweit verfügbar sind.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/1f5af862-5a59-4d1d-9d7a-4b9ba53c0f0b/user_cropped_screenshot.webp?tl_px=0,0&br_px=2122,1186&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=997,164"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">7. Um einen Firmenkontakt zu entfernen, klicke auf die Option "In Papierkorb legen".<br/>
+                    Ein entfernter Kontakt kann über den Papierkorb (Button "Papierkorb, oben) wieder in die Gesamtansicht zurückgeholt werden.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/6a8f4440-de89-4bcb-aefe-c87d766a63ed/user_cropped_screenshot.webp?tl_px=0,0&br_px=1550,866&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=455,276"/>
+                </p>
+            </div>
+        </div>
+
+    <!-- Article: Kontakt hinzufügen und verwalten -->
+    <div id="kontakt" class="hidden">
+        <a href="#" class="back-link" onclick="showOverview(); return false;">← Zurück zur Übersicht</a>
+        <div class="article-content">
+                <h1 class="scribe-title">Kontakt hinzufügen und verwalten</h1><br/><br/>
+                <div class="scribe-step">
+                    <p class="scribe-step-text scribe-step-tip">Tip: Damit ein zu einer Firma zugehöriger Kontakt, z. B. für einen Ansprechpartner, erstellt werden kann, muss diese Firma bereits im System hinterlegt sein.<br/>
+                    Mehr zum Thema: <a href="#" onclick="showArticle('firma'); return false;">Firma anlegen und verwalten</a> .</p>
+                </div>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">1. Um alle verfügbaren Kontakte einzusehen, klicke über "Kontakte" auf "Alle Kontakte".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/3d079093-49a9-4b42-a1a4-551a86dddff4/user_cropped_screenshot.webp?tl_px=0,0&br_px=1621,906&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=39,256"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">2. Um einen Kontakt zum System hinzuzufügen, klicke auf den Button "Kontakt hinzufügen" oder alternativ in der Menüspalte links, unter "Kontakte" auf "Kontakt hinzufügen".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/441216be-4a2c-4658-94e2-38fd22aadcb9/user_cropped_screenshot.webp?tl_px=0,0&br_px=1621,906&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=444,55"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">3. Wähle als erstes im Dropdown-Menü die zum neuen Kontakt dazugehörige Firma aus (die Firma muss bereits im System existieren).</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/85bca0e0-81ad-477b-88b9-a2cd302b0d47/ascreenshot.jpeg?tl_px=0,0&br_px=2122,1186&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=282,220"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">4. Nachdem alle relevanten Kontaktdaten eingetragen wurden klicke rechts auf den Button "Speichern". Danach ist der Kontakt im System veröffentlicht und kann in allen Angeboten verwendet werden.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/fd77ec90-4df9-438c-9e58-7330ce4dbccd/ascreenshot.jpeg?tl_px=0,0&br_px=2122,1186&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=1004,134"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">5. Zurück in der Gesamtansicht, kann in der Spalte "Titel", unter dem jeweiligen Kontaktnamen, der Kontakt Bearbeitet werden. Klicke dazu auf "Bearbeiten".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/467d2016-54e1-4055-a46d-e016e0f9cf26/user_cropped_screenshot.webp?tl_px=0,69&br_px=1312,802&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=408,277"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">6. Klicke nach dem Bearbeiten der Kontaktdaten rechts auf den Button "Aktualisieren" um alle vorgenommenen Änderungen im System verfügbar zu machen.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/762eb728-5cca-4087-887f-3e6e5383ef1e/user_cropped_screenshot.webp?tl_px=0,0&br_px=2122,1186&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=996,228"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">7. Um einen Kontakt zu entfernen, klicke auf "In Papierkorb legen".<br/>
+                    Ein entfernter Kontakt kann über den Button oben "Papierkorb" wieder zurück zur Gesamtansicht gefügt werden.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/dc89d93f-f022-45b1-a36b-dc318646cceb/user_cropped_screenshot.webp?tl_px=0,0&br_px=1621,906&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=441,264"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text scribe-step-tip">Tip: Wenn ein Kontakt entfernt wird, bleibt die Firma zu der er gehörte bestehen.</p>
+                </div>
+            </div>
+        </div>
+
+    <!-- Article: Angebote verwalten -->
+    <div id="angebote-verwalten" class="hidden">
+        <a href="#" class="back-link" onclick="showOverview(); return false;">← Zurück zur Übersicht</a>
+        <div class="article-content">
+                <h1 class="scribe-title">Angebote verwalten</h1><br/><br/>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">1. Um Angebote zu verwalten klicke über "Angebote" auf "Alle Angebote". Die Tabelle zeigt alle relevanten Daten zu allen erstellten Angeboten, Entwürfe und festgeschriebene. Über dieses Interface können alle Angebote verwaltet werden.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/13b3f288-e042-408c-82cc-671ee79f5860/user_cropped_screenshot.webp?tl_px=0,0&br_px=2880,1576&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=8,76"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">2. In der Spalte "Titel", unter jedem Angebotseintrag finden sich Verwaltungsoptionen.<br/>
+                    Klickt man auf "Vorschau" öffnet sich eine Vorschau des Angebots in der Kundenansicht.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/179e304c-73b0-4112-bb1d-a9eb039ab40d/user_cropped_screenshot.webp?tl_px=0,284&br_px=1250,983&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=425,276"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">3. Über "Bearbeiten" gelangt man in den Editor, um den Angebotsentwurf zu bearbeiten.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/dda7aaaa-9af2-4cbb-b226-2c4fad9b887b/user_cropped_screenshot.webp?tl_px=0,324&br_px=1250,1023&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=428,277"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text scribe-step-warning">Alert: "Bearbeiten" ist nur für Angebotsentwürfe verfügbar! Festgeschriebene Angebote können nicht mehr bearbeitet werden.</p>
+                </div>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">4. Die Option "Neuer Entwurf" dupliziert den jeweiligen Angebotsentwurf und öffnet automatisch den Editor.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/977828ca-68b9-44fa-ae56-3cb6ba5b14b3/user_cropped_screenshot.webp?tl_px=0,0&br_px=2880,1576&force_format=jpeg&q=100&width=1120.0"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">5. Die Option "In Papierkorb legen" entfernt den Angebotsentwurf aus der Gesamtansichtstabelle.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/c9769161-327a-40d4-ad26-bfd90ed4670f/user_cropped_screenshot.webp?tl_px=0,664&br_px=1528,1518&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=367,274"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">6. Entfernte Angebotsentwürfe können über den Reiter "Papierkorb", der sich über der Tabelle befindet, wieder in die Gesamtansicht zurückbewegt werden.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/23af3bc1-2631-4b95-8df1-f900e7a9ca95/user_cropped_screenshot.webp?tl_px=239,0&br_px=1768,854&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,122"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text scribe-step-warning">Alert: Ein Angebot kann nur im Entwurfsstadium gelöscht werden. Ist das Angebot einmal festgeschrieben, ist es nicht mehr löschbar!</p>
+                </div>
+            </div>
+        </div>
+
+    <!-- Article: Angebot erstellen -->
+    <div id="angebot-erstellen" class="hidden">
+        <a href="#" class="back-link" onclick="showOverview(); return false;">← Zurück zur Übersicht</a>
+        <div class="article-content">
+                <h1 class="scribe-title">Angebot erstellen</h1><br/><br/>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">1. Starte auf dem Dashboard und klicke über "Angebote" auf "Alle Angebote".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/a41c204c-4826-4fd0-93b0-cee9611e0b96/user_cropped_screenshot.webp?tl_px=0,0&br_px=1621,906&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=42,162"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">2. Klicke nun im oberen Bereich auf den Button "Angebot anlegen".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/a76ab05a-6f97-4289-94a4-f1792fd93f3e/user_cropped_screenshot.webp?tl_px=0,0&br_px=1550,866&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=467,57"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">3. Wähle nun im Fenster "Angebot anlegen" die Vorlage im Dropdown-Menü aus und klicke danach auf den Button "Angebot erstellen".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/be91c84d-e39b-4dcc-82c3-d82c530d416c/ascreenshot.jpeg?tl_px=0,205&br_px=2122,1391&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=468,440"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">4. Trage im folgenden alle angebotsrelevanten Daten in die Felder ein.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/ca1b048e-2149-455f-b94e-3c474e48a84d/ascreenshot.jpeg?tl_px=0,357&br_px=2122,1544&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=662,277"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">5. Um dem Angebot Produkte und optionale Produkte hinzuzufügen, navigiere zunächst in den Abschnitt "Produktauswahl" und klicke auf den Button "Produkt hinzufügen".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/2ff55d83-1612-4dfe-afb0-a0eedd0f807a/ascreenshot.jpeg?tl_px=0,155&br_px=2122,1342&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=716,277"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">6. Wähle aus dem Dropdown-Menü das relevante Produkt aus.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/9edaf0c7-316e-42b7-a8b0-3bc3497f3b37/ascreenshot.jpeg?tl_px=0,302&br_px=2122,1489&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=482,277"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">7. Das Produkt wird nun in der Produktauswahl gelistet. Wiederhole Schritte 5 und 6 solange, bis alle relevanten Produkte und optionalen Produkte dem Angebot hingefügt sind.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/ba115819-8b84-415f-b3f3-69e2844aa065/user_cropped_screenshot.webp?tl_px=245,188&br_px=1867,1095&force_format=jpeg&q=100&width=1120.0"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">8. Falls zutreffend, trage den optionalen Rabattwert hier ein.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/3dde4403-ca25-4dd1-a311-2ad7edb0d81a/ascreenshot.jpeg?tl_px=0,161&br_px=2122,1348&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=546,277"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text scribe-step-warning">Alert: Die maximal eintragbare Rabatthöhe ist von der Nutzerrolle abhängig. Das Überschreiten der maximalen Rabatthöhe erfordert einer schriftlichen Zustimmung eines Administrators oder Managers.</p>
+                </div>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">9. Wähle im Dropdown-Menü aus, wie das Angebots-PDF für den Kunden zugänglich sein soll. Hier kann auch eingestellt werden, dass im Angebot ein Link zum PDF bereit gestellt wird oder dass kein PDF generiert werden soll.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/64091d7f-fb85-4d67-9637-42952578c019/ascreenshot.jpeg?tl_px=0,365&br_px=2122,1552&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=656,277"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">10. Zuletzt können noch Anhänge (Bilder, Videos und Links) hinzugefügt werden.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/2e11c26f-3652-45fd-8e47-eb64f4071cad/ascreenshot.jpeg?tl_px=0,389&br_px=2122,1576&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=998,517"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">11. Um ein Angebotsentwurf zu speichern, klicke auf den Button "Entwurf speichern". Zum Entwurf kann jederzeit weiter bearbeitet werden.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/2589e606-284b-4be8-84e3-787b7af0106e/ascreenshot.jpeg?tl_px=0,0&br_px=2122,1186&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=784,33"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">12. Sobald der Entwurf final ist, klicke auf den Button "Angebot festschreiben".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/708c916a-b2f8-4ada-b17c-fba49be598e2/ascreenshot.jpeg?tl_px=0,0&br_px=2122,1186&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=990,33"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">13. Das Angebot ist jetzt live und kann über den Button "Angebot anzeigen" in einem neuen Tab geöffnet werden. Alternativ dazu steht auch ein Link zum Angebot bereit.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/96b229dd-9206-4a56-8412-67ee7bfec229/user_cropped_screenshot.webp?tl_px=0,0&br_px=2122,1186&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=937,265"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">14. Im festgeschriebenen Angebot kann über die Headerleiste zu den Abschnitten "Start" und "Ihre Angebotsübersicht" navigiert werden.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/27a17de2-2cd1-47c2-a1d4-68acda7b311a/user_cropped_screenshot.webp?tl_px=0,194&br_px=2122,1381&force_format=jpeg&q=100&width=1120.0"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">15. Das PDF kann, je nach Einstellung in Schritt 9 des Angebotsentwurfs (Rubrik "Angebots-PDF"), an dieser Stelle heruntergeladen werden.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/b936a754-bdae-4c0e-8834-dc5d16156697/user_cropped_screenshot.webp?tl_px=0,389&br_px=2122,1576&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,537"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">16. Der Kunde kann im folgenden Feld das Angebot verbindlich annehmen. Die Person, die das Angebot erstellt hat, wird per E-mail benachrichtigt, sodass die weitere Schritte eingeleitet werden können.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-14/20673426-77d3-4109-9c82-18a9cbe2bf7f/ascreenshot.jpeg?tl_px=0,389&br_px=2122,1576&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=793,323"/>
+                </p>
+            </div>
+        </div>
+
+    <!-- Article: Neuen Benutzer hinzufügen -->
+    <div id="benutzer-hinzufuegen" class="hidden">
+        <a href="#" class="back-link" onclick="showOverview(); return false;">← Zurück zur Übersicht</a>
+        <div class="article-content">
+                <h1 class="scribe-title">Neuen Benutzer hinzufügen</h1><br/><br/>
+                <div class="scribe-step">
+                    <p class="scribe-step-text scribe-step-warning">Alert: Du kannst diesen Vorgang nur als Account-Administrator, Area oder Division Manager durchführen.</p>
+                </div>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">1. Starte von deinem Dashboard und klicke auf "Benutzer".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/fc9e9380-527c-402f-995f-f91995c862d4/ascreenshot.jpeg?tl_px=0,0&br_px=2122,1186&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=33,229"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">2. Klicke oben oder in der Seitenleiste auf "Benutzer hinzufügen".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/987cc339-bf2b-4b30-b132-33f7ad479021/user_cropped_screenshot.webp?tl_px=0,0&br_px=2122,1576&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=347,36"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">3. Navigiere zum Formular "Benutzer hinzufügen".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/cf46dfdb-2137-4ab5-b821-437032507b18/user_cropped_screenshot.webp?tl_px=0,110&br_px=2122,1297&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=334,277"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">4. Trage einen Benutzernamen und die E-Mail-Adresse des neuen Benutzers ein.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/6148cfc5-5c73-41cd-a4b3-75174352ab2f/ascreenshot.jpeg?tl_px=0,389&br_px=2122,1576&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=591,284"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">5. Wähle die Rolle des neuen Benutzers aus.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/6fe71ddb-ce54-45c9-9086-2500b8c70274/ascreenshot.jpeg?tl_px=0,389&br_px=2122,1576&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=538,349"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">6. Klicke auf Benutzer hinzufügen.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/e1a95324-06b4-4662-98da-e4e4abae08a1/ascreenshot.jpeg?tl_px=0,389&br_px=2122,1576&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=262,482"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">7. Der neue Benutzer erhält nun eine Bestätigungs-E-Mail welche weitere Informationen zur Registrierung (Passwort, etc.) beinhaltet. Sobald alles erfüllt ist, ist der neue Benutzer handlungsfähig, gemäß der zugeschriebenen Rechte der in Schritt 5 ausgewählten Rolle.</p>
+                </div>
+                <div class="scribe-step">
+                    <p class="scribe-step-text scribe-step-tip">Tip: Solltest du "Keine Bestätigungs-E-Mail" ausgewählt haben, zeigen dir die folgenden Schritte, wie du für den neuen Benutzer ein Passwort setzt.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/d7cd4983-28ad-43be-9bf7-2cb840241ca7/user_cropped_screenshot.webp?tl_px=0,457&br_px=2002,1576&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=423,401"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">8. Navigiere über die Seitenliste zu "Alle Benutzer".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/de6e7f40-6751-447b-bdd4-82377c6ba5b4/user_cropped_screenshot.webp?tl_px=0,0&br_px=2122,1186&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=63,272"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">9. Sobald du dich mit dem Mauszeiger über dem soeben angelegten, neuen Benutzer befindest, werden deine Optionen sichtbar. Wähle "Bearbeiten".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/47179359-d48e-4c3a-99be-946134d925d3/File.jpeg?tl_px=0,0&br_px=2122,1186&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=300,271"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">10. Navigiere zum Feld "Neues Passwort" und trage ein Passwort ein.</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/2e38bf10-951b-45ba-bf11-742d15e299da/File.jpeg?tl_px=0,0&br_px=2122,1186&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=624,186"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">11. Um deine vorgenommenen Einstellungen zu speichern, klicke auf "Benutzer aktualisieren".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/669709e9-c715-48d6-b66a-35a72eca3dab/File.jpeg?tl_px=0,389&br_px=2122,1576&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=297,482"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">12. Der neue Benutzer kann sich nun mit dem in den vorherig gegangenen Schritten eingestellten Passwort anmelden.</p>
+                </div>
+            </div>
+        </div>
+
+    <!-- Article: Benutzer sperren -->
+    <div id="benutzer-sperren" class="hidden">
+        <a href="#" class="back-link" onclick="showOverview(); return false;">← Zurück zur Übersicht</a>
+        <div class="article-content">
+                <h1 class="scribe-title">Benutzer sperren</h1><br/><br/>
+                <div class="scribe-step">
+                    <p class="scribe-step-text scribe-step-warning">Alert: Du kannst diesen Vorgang nur als Account-Administrator, Area oder Division Manager durchführen.</p>
+                </div>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">1. Starte auf einem Dashboard und klicke über "Benutzer" auf "Alle Benutzer".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/0c6e6ee8-4fec-4e7e-9fd5-35c16c06b557/user_cropped_screenshot.webp?tl_px=0,0&br_px=2122,1186&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=235,235"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">2. Sobald du dich mit dem Mauszeiger über dem soeben angelegten, neuen Benutzer befindest, werden deine Optionen sichtbar. Wähle "Bearbeiten".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/9c89f680-0c1c-4f0d-b675-378ae782a381/ascreenshot.jpeg?tl_px=0,0&br_px=2122,1186&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=299,266"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">3. Navigiere zu "Konto sperren".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/4d650b78-e37b-4fed-bf1d-16c65e482020/user_cropped_screenshot.webp?tl_px=0,43&br_px=2122,1230&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=255,277"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">4. Klicke auf den Schalter "Konto für Login sperren".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/37a7f2bf-5691-4164-b5c0-880a186c82e6/user_cropped_screenshot.webp?tl_px=0,44&br_px=2122,1231&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=466,277"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">5. Um deine vorgenommenen Einstellungen zu speichern, klicke auf "Benutzer aktualisieren".</p>
+                </div>
+                <p class="scribe-screenshot-container">
+                    <img class="scribe-screenshot" width="560" alt="" src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-07-20/133f731b-3638-4cfc-bb04-48a7f9a270ed/ascreenshot.jpeg?tl_px=0,389&br_px=2122,1576&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=250,477"/>
+                </p>
+                <div class="scribe-step">
+                    <p class="scribe-step-text">6. Nun kann sich der gesperrte Benutzer nicht mehr einloggen, jedoch bleiben alle seine Daten bestehen. Die Sperrung kann rückgängig gemacht werden.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showArticle(articleId) {
+            // Hide overview
+            document.getElementById('overview').classList.add('hidden');
+            
+            // Hide all articles
+            const articles = ['anmelden', 'firma', 'kontakt', 'angebote-verwalten', 'angebot-erstellen', 'benutzer-hinzufuegen', 'benutzer-sperren'];
+            articles.forEach(id => {
+                const article = document.getElementById(id);
+                if (article) {
+                    article.classList.add('hidden');
+                }
+            });
+            
+            // Show selected article
+            const selectedArticle = document.getElementById(articleId);
+            if (selectedArticle) {
+                selectedArticle.classList.remove('hidden');
+            }
+            
+            // Scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function showOverview() {
+            // Hide all articles
+            const articles = ['anmelden', 'firma', 'kontakt', 'angebote-verwalten', 'angebot-erstellen', 'benutzer-hinzufuegen', 'benutzer-sperren'];
+            articles.forEach(id => {
+                const article = document.getElementById(id);
+                if (article) {
+                    article.classList.add('hidden');
+                }
+            });
+            
+            // Show overview
+            document.getElementById('overview').classList.remove('hidden');
+            
+            // Scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
